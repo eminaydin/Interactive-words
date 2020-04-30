@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [words, setWords] = useState("");
+
+  function submit(e) {
+    console.log(words);
+
+
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form>
+        <input type="text" id="name" name="name" required value={words} onChange={(e) => { setWords(e.target.value) }}
+        />
+        <button onClick={submit}>Add</button>
+        <button>Show</button>
+      </form>
     </div>
   );
 }
