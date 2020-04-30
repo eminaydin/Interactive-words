@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-
+import { Button, Input } from 'semantic-ui-react'
 function App() {
   const [word, setWord] = useState([]);
   const [userInput, setUserInput] = useState("");
@@ -38,12 +38,14 @@ function App() {
   }
   return (
     <div className="App">
-      <form>
-        <input type="text" id="name" name="name" value={userInput} onChange={e => setUserInput(e.target.value)} />
+      <form className="form">
+        <Input placeholder='Search...' value={userInput} onChange={e => setUserInput(e.target.value)} className="input" />
+        {/* <input type="text" id="name" name="name"  /> */}
         {showMessage ? (<p>Add at least 3 words</p>) :
           ("")}
-        <button onClick={submit} type="submit">Add</button>
-        <button onClick={display}>Show</button>
+        <br />
+        <Button onClick={submit}>Add</Button>
+        <Button onClick={display}>Show</Button>
         {displayText ?
           (
             <p>{word[0]} sdfsdfsd</p>
