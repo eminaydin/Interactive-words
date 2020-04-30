@@ -4,57 +4,59 @@ import { Button, Input } from 'semantic-ui-react'
 function App() {
   const [word, setWord] = useState([]);
   const [userInput, setUserInput] = useState("");
-  const [error, setError] = useState();
-  const [showMessage, setShowMessage] = useState();
+  const [lessWordError, setLessWordError] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
   const [displayText, setDisplayText] = useState(false);
+  const [emptyString, setEmptyString] = useState(false);
 
   function submit(e) {
     e.preventDefault();
+    setShowMessage(false)
+    if (userInput === "") {
+      setEmptyString(true)
+    } else { setEmptyString(false) }
+    console.log(emptyString);
 
-
-    if (word.length <= 3) {
-      setError(true)
-      setShowMessage(false)
-    } else { setError(false) }
     word.push(userInput);
     setWord(word);
-    console.log(word[0]);
-    console.log(word);
-    console.log(error);
+
     setUserInput("");
+    if (word.length <= 3) {
+      setLessWordError(true)
+
+    } else {
+      setLessWordError(false)
+
+    }
   }
 
   function display(e) {
     e.preventDefault();
     if (word.length < 3) {
       setShowMessage(true)
-      console.log(showMessage);
     } else {
       setShowMessage(false);
       setDisplayText(true)
-      console.log(showMessage)
+
 
     }
   }
   return (
+
     <div className="App">
       <form className="form">
-        <Input placeholder='Search...' value={userInput} onChange={e => setUserInput(e.target.value)} className="input" />
+        <Input placeholder='Search...' value={userInput} onChange={e => setUserInput(e.target.value)} className="input" required={true} />
         {/* <input type="text" id="name" name="name"  /> */}
         {showMessage ? (<p>Add at least 3 words</p>) :
           ("")}
         <br />
         <Button onClick={submit}>Add</Button>
         <Button onClick={display}>Show</Button>
-        {displayText ?
-          (
-            <p>{word[0]} sdfsdfsd</p>
-          )
-
-          :
-          (
-            ""
-          )}
+        {displayText &&
+          word.map(e => {
+            return <p>{e}</p>
+          })
+        }
       </form>
     </div>
   );
