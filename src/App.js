@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import { findAllInRenderedTree } from 'react-dom/test-utils';
 
 function App() {
   const [word, setWord] = useState([]);
@@ -7,10 +8,14 @@ function App() {
 
   function submit(e) {
     e.preventDefault();
-    word.push(userInput)
-    setWord(word)
-    console.log(word);
-    setUserInput("")
+    if (userInput === "") {
+      window.alert("Nope sorry")
+    } else {
+      word.push(userInput);
+      setWord(word);
+      console.log(word);
+      setUserInput("");
+    }
   }
 
 
@@ -19,7 +24,7 @@ function App() {
       <form>
         <input type="text" id="name" name="name" required value={userInput} onChange={e => setUserInput(e.target.value)}
         />
-        <button onClick={submit}>Add</button>
+        <button onClick={submit} type="submit">Add</button>
         <button>Show</button>
       </form>
     </div>
