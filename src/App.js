@@ -2,19 +2,22 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [words, setWords] = useState("");
+  const [word, setWord] = useState([]);
+  const [userInput, setUserInput] = useState("");
 
   function submit(e) {
-    console.log(words);
-
-
+    e.preventDefault();
+    word.push(userInput)
+    setWord(word)
+    console.log(word);
+    setUserInput("")
   }
 
 
   return (
     <div className="App">
       <form>
-        <input type="text" id="name" name="name" required value={words} onChange={(e) => { setWords(e.target.value) }}
+        <input type="text" id="name" name="name" required value={userInput} onChange={e => setUserInput(e.target.value)}
         />
         <button onClick={submit}>Add</button>
         <button>Show</button>
