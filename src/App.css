@@ -1,4 +1,6 @@
 .App {
+  background-color: #e9bcb7;
+  background-image: linear-gradient(315deg, #e9bcb7 0%, #29524a 74%);
   display: flex;
   align-items: center;
   height: 100vh;
@@ -24,8 +26,11 @@
   width: 100%;
   text-align: -webkit-center;
 }
-.msg {
-  width: 50%;
-  padding: 10% !important;
-  font-size: 40px !important  ;
+.initial-text {
+  font-size: 60px !important;
+}
+
+a {
+  vertical-align: middle !important;
+  font-size: 21px !important;
 }

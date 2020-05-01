@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Message } from 'semantic-ui-react'
+import { Button, Label } from 'semantic-ui-react'
 
 const Reveal = (props) => {
     const [index, setIndex] = useState(0);
@@ -20,14 +20,14 @@ const Reveal = (props) => {
 
     return (
         <div className="msg-container">
-            <Message className="msg">
 
 
-                <p>Hello <span> {props.words[index]}</span></p>
-            </Message>
+            <p className="initial-text">Hello <Label as='a' tag>
+                <span className="item"> {props.words[index]}</span>
+            </Label></p>
+            <Button labelPosition='left' icon='left chevron' content='Back' onClick={props.showForm} />
 
 
-            <button onClick={props.showForm}> delete</button>
         </div>
     );
 }

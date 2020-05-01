@@ -31,7 +31,15 @@ const Form = (props) => {
     return (
         <div className="form">
             <form >
-                <Input placeholder='Search...' value={userInput} onChange={handler} className="input" required={true} />
+                <Input
+                    icon='tags'
+                    iconPosition='left'
+                    label={{ tag: true, content: 'Add Tag' }}
+                    labelPosition='right'
+                    placeholder='Enter tags'
+                    value={userInput} onChange={handler} className="input"
+                />
+
 
                 {!boolean ? (
                     <p className="error">Add at least 3 words</p>
