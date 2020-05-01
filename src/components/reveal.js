@@ -22,7 +22,7 @@ const Reveal = (props) => {
         <div className="msg-container">
 
 
-            <p className="initial-text">Hello <Label as='a' tag>
+            <p className="initial-text">I am <Label as='a' tag>
                 <span className="item"> {props.words[index]}</span>
             </Label></p>
             <Button labelPosition='left' icon='left chevron' content='Back' onClick={props.showForm} />

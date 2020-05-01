@@ -36,13 +36,13 @@ const Form = (props) => {
                     iconPosition='left'
                     label={{ tag: true, content: 'Add Tag' }}
                     labelPosition='right'
-                    placeholder='Enter tags'
+                    placeholder='Describe yourself with one word'
                     value={userInput} onChange={handler} className="input"
                 />
 
 
                 {!boolean ? (
-                    <p className="error">Add at least 3 words</p>
+                    <p className="error">Add at least 3 words to see the result!</p>
                 )
                     :
                     null

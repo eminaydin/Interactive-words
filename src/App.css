@@ -15,11 +15,12 @@
 
 .btn {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   margin-top: 20px;
 }
 .error {
   margin-top: 5px;
+  color: white;
 }
 
 .msg-container {
@@ -27,7 +28,7 @@
   text-align: -webkit-center;
 }
 .initial-text {
-  font-size: 60px !important;
+  font-size: 40px !important;
 }
 
 a {
