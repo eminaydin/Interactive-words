@@ -39,8 +39,6 @@ const Form = (props) => {
                     placeholder='Describe yourself with one word'
                     value={userInput} onChange={handler} className="input"
                 />
-
-
                 {!boolean ? (
                     <p className="error">Add at least 3 words to see the result!</p>
                 )

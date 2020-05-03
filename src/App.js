@@ -17,10 +17,6 @@ function App() {
     setWords([])
     setHasThreeWords(false)
   }
-
-
-
-
   return (
 
     <div className="App">
